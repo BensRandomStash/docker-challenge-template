@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  api:
+    build: ./api
+  db:
+    build: ./db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password 
+      MYSQL_DATABASE: newbookdatabase
+      MYSQL_USER: name
+      MYSQL_PASSWORD: password2
+      MYSQL_HOST: db
+  nginx:
+    build: ./nginx
+    ports: 
+      - "8080:80"
